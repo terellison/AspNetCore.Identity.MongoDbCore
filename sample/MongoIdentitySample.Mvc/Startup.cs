@@ -9,6 +9,8 @@ using MongoIdentitySample.Mvc.Services;
 using AspNetCore.Identity.MongoDbCore.Models;
 using Microsoft.AspNetCore.Identity;
 using AspNetCore.Identity.MongoDbCore.Infrastructure;
+using MongoIdentitySample.Mvc.Controllers;
+using MongoIdentitySample.Mvc.Models.AccountViewModels;
 
 namespace MongoIdentitySample.Mvc
 {
@@ -29,6 +31,7 @@ namespace MongoIdentitySample.Mvc
 
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
+            //CreateAdminUser();
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -81,5 +84,19 @@ namespace MongoIdentitySample.Mvc
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
+
+        //private void CreateAdminUser()
+        //{
+        //    var user = new ApplicationUser
+        //    {
+        //        UserName = "Admin",
+        //        Email = "administrator@terellison.net",
+        //        BirthDate = DateTime.Today,
+        //        PasswordHash = "47b7bfb65fa83ac9a71dcb0f6296bb6e"
+        //    };
+        //    var role = new MongoIdentityRole("Administrator");
+        //    user.AddRole(role.Id);
+            
+        //}
     }
 }
